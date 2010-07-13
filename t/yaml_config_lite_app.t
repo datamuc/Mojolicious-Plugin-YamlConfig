@@ -30,7 +30,6 @@ app->log->level('error');
 # Load plugin
 my $config =
   plugin yaml_config => {default => {foo => 'baz', hello => 'there'}};
-use Data::Dumper::Concise;
 is($config->{foo},   'bar');
 is($config->{hello}, 'there');
 is($config->{utf},   'утф');
