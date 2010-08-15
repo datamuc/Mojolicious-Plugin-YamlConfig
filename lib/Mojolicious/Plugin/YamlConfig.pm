@@ -7,7 +7,7 @@ package Mojolicious::Plugin::YamlConfig;
 use YAML::Any();
 use base 'Mojolicious::Plugin::JsonConfig';
 
-our $VERSION = '0.0.1';
+our $VERSION = '0.0.2';
 
 sub register {
    my ($self, $app, $conf) = @_;
@@ -59,7 +59,7 @@ Mojolicious::Plugin::YamlConfig - YAML Configuration Plugin
     my $config = $self->stash('config');
 
     # Everything can be customized with options
-    my $config = plugin json_config => {
+    my $config = plugin yaml_config => {
         file      => '/etc/myapp.conf',
         stash_key => 'conf'
     };
