@@ -4,8 +4,7 @@ use strict;
 use warnings;
 package Mojolicious::Plugin::YamlConfig;
 
-use YAML::Any;
-use namespace::autoclean;
+use YAML::Any();
 use base 'Mojolicious::Plugin::JsonConfig';
 
 our $VERSION = '0.0.1';
@@ -24,7 +23,7 @@ sub _parse_config {
     # Parse
     my ($config,$error);
     eval {
-        $config = Load($encoded);
+        $config = YAML::Any::Load($encoded);
     }; if($@) {
         $error = $@;
     }
