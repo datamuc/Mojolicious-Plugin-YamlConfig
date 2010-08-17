@@ -1,3 +1,12 @@
+0.0.3 - 2010-08-17
+
+    - Switch from YAML::Any to YAML::XS
+      http://www.cpantesters.org/cpan/report/07665049-b19f-3f77-b713-d32bba55d77f
+
+0.0.2 - 2010-08-15
+
+    - Documentation fixes
+
 0.0.1 - 2010-08-15
 
     - first release

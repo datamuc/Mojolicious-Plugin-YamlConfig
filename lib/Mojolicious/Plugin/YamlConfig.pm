@@ -4,10 +4,10 @@ use strict;
 use warnings;
 package Mojolicious::Plugin::YamlConfig;
 
-use YAML::Any();
+use YAML::XS();
 use base 'Mojolicious::Plugin::JsonConfig';
 
-our $VERSION = '0.0.2';
+our $VERSION = '0.0.3';
 
 sub register {
    my ($self, $app, $conf) = @_;
@@ -23,7 +23,7 @@ sub _parse_config {
     # Parse
     my ($config,$error);
     eval {
-        $config = YAML::Any::Load($encoded);
+        $config = YAML::XS::Load($encoded);
     }; if($@) {
         $error = $@;
     }
