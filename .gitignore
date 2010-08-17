@@ -1,4 +1,5 @@
 MANIFEST
+MANIFEST.bak
 Makefile
 Mojolicious-Plugin-YamlConfig-*
 blib/
