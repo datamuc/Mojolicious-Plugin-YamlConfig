@@ -19,9 +19,8 @@ WriteMakefile(
   'NAME' => 'Mojolicious::Plugin::YamlConfig',
   'PREREQ_PM' => {
     'Mojolicious' => '0.999927',
-    'YAML::XS' => '0'
+    'YAML::Tiny' => '0'
   },
-  'VERSION' => '0.0.1',
   META_ADD => {
     resources => {
       license => 'http://dev.perl.org/licenses/',

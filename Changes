@@ -1,3 +1,8 @@
+0.0.4 - 2010-08-25
+
+    - YAML::Tiny is the default backend now.
+      One can use YAML::XS per config option
+
 0.0.3 - 2010-08-17
 
     - Switch from YAML::Any to YAML::XS
