@@ -18,8 +18,9 @@ WriteMakefile(
   'VERSION_FROM' => 'lib/Mojolicious/Plugin/YamlConfig.pm',
   'NAME' => 'Mojolicious::Plugin::YamlConfig',
   'PREREQ_PM' => {
-    'Mojolicious' => '0.999927',
-    'YAML::Tiny' => '0'
+    'Mojolicious' => '1.12',
+    'perl'        => '5.010',
+    'YAML::Tiny'  => '0'
   },
   META_ADD => {
     resources => {

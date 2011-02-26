@@ -1,3 +1,4 @@
 ---
 foo: "bar"
 utf: "утф"
+bar: "<%= app->home %>"

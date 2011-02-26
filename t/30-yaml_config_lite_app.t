@@ -17,7 +17,7 @@ use Test::More;
 # Make sure sockets are working
 plan skip_all => 'working sockets required for this test!'
   unless Mojo::IOLoop->new->generate_port;
-plan tests => 11;
+plan tests => 12;
 
 # Oh, I always feared he might run off like this.
 # Why, why, why didn't I break his legs?
@@ -33,6 +33,7 @@ my $config =
 is($config->{foo},   'bar',    'right value');
 is($config->{hello}, 'there',  'right value');
 is($config->{utf},   'утф',    'right value');
+is($config->{bar}, app->home, 'rendering');
 
 SKIP: {
     eval 'require YAML::XS; 1' ||

@@ -1,3 +1,8 @@
+0.1.0 - 2011-02-26
+    - adjusted to new shiny mojolicious api
+    - support YAML::Old and YAML
+    - depends on perl > 5.010 now
+
 0.0.4 - 2010-08-25
 
     - YAML::Tiny is the default backend now.

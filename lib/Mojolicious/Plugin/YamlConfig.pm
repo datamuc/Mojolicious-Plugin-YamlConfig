@@ -1,38 +1,49 @@
 # vim: ai et sw=4
 use strict;
 use warnings;
+use 5.010;
 package Mojolicious::Plugin::YamlConfig;
 
 use base 'Mojolicious::Plugin::JsonConfig';
 
-our $VERSION = '0.0.4';
+our $VERSION = '0.1.0';
 
 sub register {
-   my ($self, $app, $conf) = @_;
-   $conf ||= {};
-   $conf->{ext} = 'yaml';
-   $conf->{class} ||= 'YAML::Tiny';
-   $self->{class} = $conf->{class};
-   return $self->SUPER::register($app, $conf);
+    my ( $self, $app, $conf ) = @_;
+    $conf ||= {};
+    $conf->{ext} = 'yaml';
+    $conf->{class} ||= $ENV{MOJO_YAML} || 'YAML::Tiny';
+    $self->{class} = $conf->{class};
+    unless ( $conf->{class} ~~ [qw(YAML YAML::XS YAML::Tiny YAML::Old)]) {
+        warn("$conf->{class} is not supported, use at your own risk");
+    }
+    return $self->SUPER::register( $app, $conf );
 }
 
-sub _parse_config {
-    my ($self, $encoded, $name) = @_;
+sub parse {
+    my ($self, $content, $file, $conf, $app) = @_;
     local $@;
 
     my $class = $self->{class};
     eval "require $class; 1" || die($@);
 
-    # Parse
     my ($config,$error);
 
-    $config = eval $class.'::Load($encoded)';
+    # Render
+    $content = $self->render($content, $file, $conf, $app);
+
+    if ($class ~~ [qw(YAML YAML::Old)]) {
+        # they are broken *sigh*
+        $content = Encode::decode('UTF-8', $content);
+    }
+
+    $config = eval $class.'::Load($content)';
     if($@) {
         $error = $@;
     }
 
-    die qq/Couldn't parse config "$name": $error/ if !$config && $error;
-    die qq/Invalid config "$name"./ if !$config || ref $config ne 'HASH';
+    die qq/Couldn't parse config "$file": $error/ if !$config && $error;
+    die qq/Invalid config "$file"./ if !$config || ref $config ne 'HASH';
 
     return $config;
 }
@@ -76,9 +87,8 @@ and you should be fine. :)
 =head2 LIMITATIONS
 
 L<YAML::Tiny> is the default parser. It doesn't even try to implement the full
-YAML spec. Currently you can use YAML::XS via the C<class> option to parse the
-data with L<YAML::XS> (It's currently the only supported alternative. Use
-L<YAML>, L<YAML::Any>, L<YAML::Old> or L<YAML::Syck> at your own risk).
+YAML spec. Currently you can use L<YAML::XS>, L<YAML::Old> and L<YAML> via the
+C<class> option to parse the data with a more advanced YAML parser.
 
 =head2 AUTHOR
 
