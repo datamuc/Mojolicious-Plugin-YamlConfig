@@ -1,7 +1,6 @@
 # vim: ai et sw=4
 use strict;
 use warnings;
-use 5.010;
 package Mojolicious::Plugin::YamlConfig;
 
 use base 'Mojolicious::Plugin::JsonConfig';
@@ -14,7 +13,8 @@ sub register {
     $conf->{ext} = 'yaml';
     $conf->{class} ||= $ENV{MOJO_YAML} || 'YAML::Tiny';
     $self->{class} = $conf->{class};
-    unless ( $conf->{class} ~~ [qw(YAML YAML::XS YAML::Tiny YAML::Old)]) {
+    my @supported = qw(YAML YAML::XS YAML::Tiny YAML::Old);
+    unless ( grep { $conf->{class} eq $_ } @supported) {
         warn("$conf->{class} is not supported, use at your own risk");
     }
     return $self->SUPER::register( $app, $conf );
@@ -32,7 +32,8 @@ sub parse {
     # Render
     $content = $self->render($content, $file, $conf, $app);
 
-    if ($class ~~ [qw(YAML YAML::Old)]) {
+    my @broken = qw(YAML YAML::Old);
+    if (grep { $class eq $_ } @broken) {
         # they are broken *sigh*
         $content = Encode::decode('UTF-8', $content);
     }
