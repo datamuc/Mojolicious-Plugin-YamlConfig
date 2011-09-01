@@ -1,3 +1,6 @@
+0.1.2 - 2011-09-02
+    -  just to bother me, sri renamed M::P::JsonConfig to M::P::JSONConfig :-P
+
 0.1.1 - 2011-03-16
     - remove perl 5.010 dependency
 

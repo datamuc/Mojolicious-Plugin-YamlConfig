@@ -3,9 +3,9 @@ use strict;
 use warnings;
 package Mojolicious::Plugin::YamlConfig;
 
-use base 'Mojolicious::Plugin::JsonConfig';
+use base 'Mojolicious::Plugin::JSONConfig';
 
-our $VERSION = '0.1.1';
+our $VERSION = '0.1.2';
 
 sub register {
     my ( $self, $app, $conf ) = @_;
