@@ -82,7 +82,7 @@ Mojolicious::Plugin::YamlConfig - YAML Configuration Plugin
 
 =head2 DESCRIPTION
 
-Look at L<Mojolicious::Plugin::JsonConfig> and replace "json" with "yaml"
+Look at L<Mojolicious::Plugin::JSONConfig> and replace "JSONConfig" with "yaml_config"
 and you should be fine. :)
 
 =head2 LIMITATIONS
