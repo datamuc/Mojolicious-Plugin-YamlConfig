@@ -33,11 +33,11 @@ my $config =
 is($config->{foo},   'bar',    'right value');
 is($config->{hello}, 'there',  'right value');
 is($config->{utf},   'утф',    'right value');
-is($config->{bar}, app->home, 'rendering');
+is($config->{bar}, 2, 'rendering');
 
 SKIP: {
     eval 'require YAML::XS; 1' ||
-        skip 'YAML::XS required for this test', 3; 
+        skip 'YAML::XS required for this test', 3;
 
     my $config = plugin yaml_config => {
         default => {foo => 'baz', hello => 'there'},
