@@ -1,3 +1,9 @@
+0.1.4 - 2012-03-20
+    - Fix RT #75848
+
+0.1.2 - 2011-09-04
+    - tiny documentation fix
+
 0.1.2 - 2011-09-02
     -  just to bother me, sri renamed M::P::JsonConfig to M::P::JSONConfig :-P
 

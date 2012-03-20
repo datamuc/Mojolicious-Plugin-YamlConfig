@@ -5,7 +5,7 @@ package Mojolicious::Plugin::YamlConfig;
 
 use base 'Mojolicious::Plugin::JSONConfig';
 
-our $VERSION = '0.1.3';
+our $VERSION = '0.1.4';
 
 sub register {
     my ( $self, $app, $conf ) = @_;
