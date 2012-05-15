@@ -1,5 +1,8 @@
+0.1.5 - 2012-05-15
+    - Fix RT #76551 (jploski)
+
 0.1.4 - 2012-03-20
-    - Fix RT #75848
+    - Fix RT #75848 (chorny)
 
 0.1.2 - 2011-09-04
     - tiny documentation fix

@@ -5,7 +5,7 @@ package Mojolicious::Plugin::YamlConfig;
 
 use base 'Mojolicious::Plugin::JSONConfig';
 
-our $VERSION = '0.1.4';
+our $VERSION = '0.1.5';
 
 sub register {
     my ( $self, $app, $conf ) = @_;
@@ -22,7 +22,6 @@ sub register {
 
 sub parse {
     my ($self, $content, $file, $conf, $app) = @_;
-    local $@;
 
     my $class = $self->{class};
     eval "require $class; 1" || die($@);
