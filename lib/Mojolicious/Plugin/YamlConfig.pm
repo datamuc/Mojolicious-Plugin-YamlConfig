@@ -96,5 +96,5 @@ Danijel Tasov <data@cpan.org>
 
 =head2 SEE ALSO
 
-L<Mojolicious>, L<Mojolicous::Plugin::JsonConfig>, L<Mojolicious::Guides>
+L<Mojolicious>, L<Mojolicous::Plugin::JSONConfig>, L<Mojolicious::Guides>
 
