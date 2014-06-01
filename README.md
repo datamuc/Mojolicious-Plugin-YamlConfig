@@ -1,46 +1,47 @@
- # NAME
+# NAME
 
-    Mojolicious::Plugin::YamlConfig - YAML Configuration Plugin
+Mojolicious::Plugin::YamlConfig - YAML Configuration Plugin
 
- # SYNOPSIS
+# SYNOPSIS
 
-    \# myapp.yaml
-    --
-    foo: "bar"
-    music_dir: "<%= app->home->rel_dir('music') %>"
+\# myapp.yaml
+--
+foo: "bar"
+music_dir: "<%= app->home->rel_dir('music') %>"
 
-    # Mojolicious
-    $self->plugin('yaml_config');
+# Mojolicious
+$self->plugin('yaml_config');
 
-    # Mojolicious::Lite
-    plugin 'yaml_config';
+# Mojolicious::Lite
+plugin 'yaml_config';
 
-    # Reads myapp.yaml by default and puts the parsed version into the stash
-    my $config = $self->stash('config');
+# Reads myapp.yaml by default and puts the parsed version into the stash
+my $config = $self->stash('config');
 
-    # Everything can be customized with options
-    plugin yaml_config => {
-        file      => '/etc/myapp.conf',
-        stash_key => 'conf',
-        class     => 'YAML::XS'
-    };
+# Everything can be customized with options
+plugin yaml_config => {
+    file      => '/etc/myapp.conf',
+    stash_key => 'conf',
+    class     => 'YAML::XS'
+};
 
- # DESCRIPTION
+# DESCRIPTION
 
-    Look at Mojolicious::Plugin::JSONConfig and replace "JSONConfig" with
-    "yaml_config" and you should be fine. :)
+Look at Mojolicious::Plugin::JSONConfig and replace "JSONConfig" with
+"yaml_config" and you should be fine. :)
 
- # LIMITATIONS
+# LIMITATIONS
 
-    YAML::Tiny is the default parser. It doesn't even try to implement the
-    full YAML spec. Currently you can use YAML::XS, YAML::Old and YAML via
-    the "class" option to parse the data with a more advanced YAML parser.
+YAML::Tiny is the default parser. It doesn't even try to implement the
+full YAML spec. Currently you can use YAML::XS, YAML::Old and YAML via
+the "class" option to parse the data with a more advanced YAML parser.
 
- # AUTHOR
+# AUTHOR
 
-    Danijel Tasov <data@cpan.org>
+Danijel Tasov <data@cpan.org>
 
- # SEE ALSO
+# SEE ALSO
+
 [Mojolicious](https://metacpan.org/pod/Mojolicious)
 
 [Mojolicious::Plugin::JSONConfig](https://metacpan.org/pod/Mojolicious::Plugin::JSONConfig)
