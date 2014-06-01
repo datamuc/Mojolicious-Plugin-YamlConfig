@@ -4,21 +4,21 @@ Mojolicious::Plugin::YamlConfig - YAML Configuration Plugin
 
 # SYNOPSIS
 
-    \# myapp.yaml
+    # myapp.yaml
     --
     foo: "bar"
     music_dir: "<%= app->home->rel_dir('music') %>"
 
-    \# Mojolicious
+    # Mojolicious
     $self->plugin('yaml_config');
 
-    \# Mojolicious::Lite
+    # Mojolicious::Lite
     plugin 'yaml_config';
 
-    \# Reads myapp.yaml by default and puts the parsed version into the stash
+    # Reads myapp.yaml by default and puts the parsed version into the stash
     my $config = $self->stash('config');
 
-    \# Everything can be customized with options
+    # Everything can be customized with options
     plugin yaml_config => {
         file      => '/etc/myapp.conf',
         stash_key => 'conf',
