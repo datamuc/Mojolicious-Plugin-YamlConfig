@@ -13,10 +13,18 @@ BEGIN { $ENV{MOJO_POLL} = $ENV{MOJO_NO_IPV6} = 1 }
 
 use Mojo::IOLoop;
 use Test::More;
+use Mojolicious;
 
 # Make sure sockets are working
-plan skip_all => 'working sockets required for this test!'
-  unless Mojo::IOLoop->new->generate_port;
+my $mojo_version = $Mojolicious::VERSION;
+if ( $mojo_version < 5.0 ) {
+  plan skip_all => 'working sockets required for this test!'
+    unless Mojo::IOLoop->new->generate_port;
+}
+else {
+  plan skip_all => 'working sockets required for this test!'
+    unless Mojo::IOLoop::Server->new->generate_port;
+}
 plan tests => 12;
 
 # Oh, I always feared he might run off like this.
