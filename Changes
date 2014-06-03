@@ -1,3 +1,9 @@
+0.1.8 - 2014-06-03
+    - Fix test with Mojo >= 5 (ruzhnikov) (RT 96127)
+
+0.1.7 - 2014-02-17
+    - make YAML::Tiny work again
+
 0.1.6 - 2013-11-18
     - documentation fix
 
