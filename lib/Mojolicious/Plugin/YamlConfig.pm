@@ -30,6 +30,7 @@ sub parse {
 
     # Render
     $content = $self->render($content, $file, $conf, $app);
+    $content = Encode::encode('UTF-8', $content);
 
     my @broken = qw(YAML YAML::Old YAML::Tiny);
     if (grep { $class eq $_ } @broken) {
