@@ -1,3 +1,7 @@
+0.2.0 - 2014-10-31
+    - Fix encoding issues introduced with Mojolicious 5.54 (mojo 27a351852)
+    - Mojolicious 5.54 is required now
+
 0.1.8 - 2014-06-03
     - Fix test with Mojo >= 5 (ruzhnikov) (RT 96127)
 
