@@ -4,3 +4,4 @@ Makefile
 Mojolicious-Plugin-YamlConfig-*
 blib/
 pm_to_blib
+MYMETA*

@@ -1,4 +1,3 @@
-
 #!start included /opt/perl5012000/lib/5.12.0/ExtUtils/MANIFEST.SKIP
 # Avoid version control files.
 \bRCS\b
@@ -54,3 +53,4 @@
 #!end included /opt/perl5012000/lib/5.12.0/ExtUtils/MANIFEST.SKIP
 .*\.tar\.gz$
 ^Mojolicious-Plugin-YamlConfig.*
+\bMYMETA\..*$

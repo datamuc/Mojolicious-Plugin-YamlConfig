@@ -1,3 +1,6 @@
+0.2.1 - 2015-10-29
+    - RT #108072 - update MANIFEST.SKIP to exclude MYMETA*
+
 0.2.0 - 2014-10-31
     - Fix encoding issues introduced with Mojolicious 5.54 (mojo 27a351852)
     - Mojolicious 5.54 is required now
